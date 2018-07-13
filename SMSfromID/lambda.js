@@ -3,7 +3,7 @@ const ddb = new AWS.DynamoDB.DocumentClient();
 const sns = new AWS.SNS();
 exports.handler = function (event, context, callback) {
 
-let childrenid = event['childrenid'];
+let childrenid = Number(event['childrenid']);
 console.log(childrenid)
 
 	ddb.get({
