@@ -4,7 +4,9 @@ const sns = new AWS.SNS();
 exports.handler = function (event, context, callback) {
 
 let childrenid = Number(event['childrenid']);
-
+let receiver;
+let sender;
+let message;
 
 console.log(childrenid);
 
@@ -15,10 +17,9 @@ console.log(childrenid);
 		if (err) {
 			console.log(err)
 		} else {
-			let receiver = data.Item['phone'];
-			console.log(receiver)
-			let sender = 'AWS Lost Children';
-			let message = 'Your children is now with me'
+			receiver = data.Item['phone'];
+			sender = 'AWS Lost Children';
+			message = 'Your children is now with me';
 		}
 	});
 
