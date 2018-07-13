@@ -3,12 +3,12 @@ const ddb = new AWS.DynamoDB.DocumentClient();
 const sns = new AWS.SNS();
 exports.handler = function (event, context, callback) {
 
-let childrenid = Number(event['childrenid']);
-let receiver = '';
-let sender = '';
-let message = '';
+	let childrenid = Number(event['childrenid']);
+	let receiver = '';
+	let sender = '';
+	let message = '';
 
-console.log(childrenid);
+	console.log(childrenid);
 
 	ddb.get({
 		TableName: 'children',
@@ -22,8 +22,6 @@ console.log(childrenid);
 			message = 'Your children is now with me';
 		}
 	});
-
-	let isPromotional = true;
 
 	console.log("Sending message", message, "to receiver", receiver);
 
