@@ -4,7 +4,9 @@ const sns = new AWS.SNS();
 exports.handler = function (event, context, callback) {
 
 let childrenid = Number(event['childrenid']);
-console.log(childrenid)
+
+
+console.log(childrenid);
 
 	ddb.get({
 		TableName: 'children',
