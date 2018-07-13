@@ -4,6 +4,7 @@ const sns = new AWS.SNS();
 exports.handler = function (event, context, callback) {
 
 let childrenid = event['childrenid'];
+console.log(childrenid)
 
 	ddb.get({
 		TableName: 'children',
@@ -12,7 +13,8 @@ let childrenid = event['childrenid'];
 		if (err) {
 			console.log(err)
 		} else {
-			let receiver = data['Item']['phone'];
+			let receiver = data.Item['phone'];
+			console.log(receiver)
 			let sender = 'AWS Lost Children';
 			let message = 'Your children is now with me'
 		}
